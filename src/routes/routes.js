@@ -1,3 +1,5 @@
+import { addNewContact } from '../controllers/controller';
+
 const routes = (app) => {
 
   app.route('/contact')
@@ -7,9 +9,7 @@ const routes = (app) => {
     }, (req, res, next) => {
       res.send('GET request');
     })
-    .post((req, res, next) => {
-      res.send('POST request');
-    });
+    .post(addNewContact);
 
   app.route('/contact/:contactId')
     .put((req, res, next) => {

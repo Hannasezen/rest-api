@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
 const app = express();
-const PORT = 8000;
+const PORT = 3000;
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/CRMdb', {

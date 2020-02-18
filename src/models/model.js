@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-export default Contact = new Schema({
+export const ContactSchema = new Schema({
   firstName: {
     type: String,
     required: 'Enter a first name'
