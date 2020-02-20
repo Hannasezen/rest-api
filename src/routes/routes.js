@@ -1,23 +1,32 @@
-import { addNewContact } from '../controllers/controller';
+import { addNewContact,
+        getContacts,
+        getContactWithId,
+        updateContact,
+        deleteContact
+ } from '../controllers/controller';
 
 const routes = (app) => {
 
   app.route('/contact')
     .get((req, res, next) => {
-      console.log('middleware');
+      // middleware
+      console.log(`Request from: ${req.originalUrl}`);
+      console.log(`Request type: ${req.method}`);
       next();
-    }, (req, res, next) => {
-      res.send('GET request');
-    })
+    }, getContacts)
+
+    // POST endpoint
     .post(addNewContact);
 
   app.route('/contact/:contactId')
-    .put((req, res, next) => {
-      res.send('PUT request');
-    })
-    .delete((req, res, next) => {
-      res.send('DELETE request');
-    });
+    // GET a specific contact
+    .get(getContactWithId)
+
+    // UPDATE a specific contact
+    .put(updateContact)
+
+    // DELETE a specific contact
+    .delete(deleteContact);
 
 }
 
